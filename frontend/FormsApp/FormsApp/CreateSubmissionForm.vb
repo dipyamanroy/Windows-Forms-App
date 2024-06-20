@@ -73,6 +73,26 @@ Public Class CreateSubmissionForm
     End Sub
 
     Private Async Sub SubmitForm()
+        ' Validate name, email, and phone number
+        Dim name As String = txtName.Text.Trim()
+        Dim email As String = txtEmail.Text.Trim()
+        Dim phoneNum As String = txtPhoneNum.Text.Trim()
+
+        If String.IsNullOrEmpty(name) Then
+            MessageBox.Show("Name cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
+        If String.IsNullOrEmpty(email) Then
+            MessageBox.Show("Email cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
+        If Not IsValidPhoneNumber(phoneNum) Then
+            MessageBox.Show("Phone number must be exactly 10 numeric digits.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
         Dim submission As New Submission() With {
             .Name = txtName.Text,
             .Email = txtEmail.Text,
@@ -129,6 +149,11 @@ Public Class CreateSubmissionForm
             End If
         End Using
     End Function
+
+    Private Function IsValidPhoneNumber(phone As String) As Boolean
+        Return phone.Length = 10 AndAlso phone.All(AddressOf Char.IsDigit)
+    End Function
+
 End Class
 
 Public Class Submission

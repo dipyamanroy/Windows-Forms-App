@@ -76,6 +76,18 @@ app.put('/update', (req: Request, res: Response) => {
   res.send('Submission updated successfully!');
 });
 
+// Endpoint to search for a form submission by email
+app.get('/search', (req: Request, res: Response) => {
+  const email = req.query.email as string;
+  const db = JSON.parse(fs.readFileSync(dbPath, 'utf-8'));
+  const submission = db.submissions.find((submission: Submission) => submission.Email === email);
+  if (submission) {
+    res.json(submission);
+  } else {
+    res.status(404).send('Submission not found');
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });

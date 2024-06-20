@@ -40,6 +40,15 @@ Public Class ViewSubmissionsForm
         Await EditSubmission()
     End Sub
 
+    Private Async Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        Dim email As String = txtSearchEmail.Text.Trim()
+        If Not String.IsNullOrEmpty(email) Then
+            Await SearchAndDisplaySubmissionByEmail(email)
+        Else
+            MessageBox.Show("Please enter an email to search.")
+        End If
+    End Sub
+
     Private Async Function ShowPreviousSubmission() As Task
         If currentIndex > 0 Then
             currentIndex -= 1
@@ -99,6 +108,23 @@ Public Class ViewSubmissionsForm
             ' Reload the current submission after the form is closed
             Await DisplaySubmission(currentIndex)
         End If
+    End Function
+
+    Private Async Function SearchAndDisplaySubmissionByEmail(email As String) As Task
+        Using client As New HttpClient()
+            Dim response As HttpResponseMessage = Await client.GetAsync($"http://localhost:3000/search?email={email}")
+            If response.IsSuccessStatusCode Then
+                Dim jsonResponse As String = Await response.Content.ReadAsStringAsync()
+                Dim submission As Submission = JsonConvert.DeserializeObject(Of Submission)(jsonResponse)
+                txtName.Text = submission.Name
+                txtEmail.Text = submission.Email
+                txtPhoneNum.Text = submission.Phone
+                txtGithubLink.Text = submission.GithubLink
+                txtStopwatchTime.Text = submission.StopwatchTime
+            Else
+                MessageBox.Show("Submission not found.")
+            End If
+        End Using
     End Function
 
 End Class

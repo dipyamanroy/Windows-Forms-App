@@ -60,11 +60,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\FormsApp\\FormsApp\\FormsApp.vbproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\Documents\\App\\Windows Forms App\\frontend\\FormsApp\\FormsApp\\FormsApp.vbproj",
       "projectName": "FormsApp",
-      "projectPath": "C:\\Users\\ASUS\\source\\repos\\FormsApp\\FormsApp\\FormsApp.vbproj",
+      "projectPath": "C:\\Users\\ASUS\\Documents\\App\\Windows Forms App\\frontend\\FormsApp\\FormsApp\\FormsApp.vbproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\source\\repos\\FormsApp\\FormsApp\\obj\\",
+      "outputPath": "C:\\Users\\ASUS\\Documents\\App\\Windows Forms App\\frontend\\FormsApp\\FormsApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
