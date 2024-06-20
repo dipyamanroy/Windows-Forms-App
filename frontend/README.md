@@ -12,7 +12,7 @@ The frontend of the application is built using VB.NET and consists of three form
 # Running the App
 ## Prerequisites
 
-- [Visual Studio](https://visualstudio.microsoft.com/) installed on your machine.
+- [Visual Studio](https://visualstudio.microsoft.com/) installed on your machine, running Windows >8.1.
 - You **may** need to install the Newtonsoft.Json package using NuGet **manually**. Follow the installation instructions [here](https://learn.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-in-visual-studio).
 
 ## Running the Frontend

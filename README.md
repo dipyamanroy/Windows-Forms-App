@@ -7,6 +7,7 @@ This project is a full-stack Windows Forms application that consists of a fronte
 # Running the App
 ## Prerequisites
 
+- Machine must be running Windows >8.1.
 - [Node.js and npm](https://nodejs.org/) installed on your machine.
 - [Visual Studio](https://visualstudio.microsoft.com/) installed on your machine.
 
