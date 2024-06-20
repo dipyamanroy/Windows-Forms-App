@@ -39,13 +39,14 @@ Partial Class ViewSubmissionsForm
         btnEdit = New Button()
         txtSearchEmail = New TextBox()
         btnSearch = New Button()
+        btnExportToCSV = New Button()
         SuspendLayout()
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
         Label1.Font = New Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(22, 49)
+        Label1.Location = New Point(22, 43)
         Label1.Name = "Label1"
         Label1.Size = New Size(621, 38)
         Label1.TabIndex = 2
@@ -53,7 +54,7 @@ Partial Class ViewSubmissionsForm
         ' 
         ' txtGithubLink
         ' 
-        txtGithubLink.Location = New Point(269, 359)
+        txtGithubLink.Location = New Point(269, 396)
         txtGithubLink.Name = "txtGithubLink"
         txtGithubLink.ReadOnly = True
         txtGithubLink.Size = New Size(374, 31)
@@ -61,7 +62,7 @@ Partial Class ViewSubmissionsForm
         ' 
         ' txtPhoneNum
         ' 
-        txtPhoneNum.Location = New Point(269, 269)
+        txtPhoneNum.Location = New Point(269, 321)
         txtPhoneNum.Name = "txtPhoneNum"
         txtPhoneNum.ReadOnly = True
         txtPhoneNum.Size = New Size(374, 31)
@@ -69,7 +70,7 @@ Partial Class ViewSubmissionsForm
         ' 
         ' txtEmail
         ' 
-        txtEmail.Location = New Point(269, 196)
+        txtEmail.Location = New Point(269, 248)
         txtEmail.Name = "txtEmail"
         txtEmail.ReadOnly = True
         txtEmail.Size = New Size(374, 31)
@@ -77,7 +78,7 @@ Partial Class ViewSubmissionsForm
         ' 
         ' txtName
         ' 
-        txtName.Location = New Point(269, 125)
+        txtName.Location = New Point(269, 177)
         txtName.Name = "txtName"
         txtName.ReadOnly = True
         txtName.Size = New Size(374, 31)
@@ -87,7 +88,7 @@ Partial Class ViewSubmissionsForm
         ' 
         Label5.AutoSize = True
         Label5.Font = New Font("Segoe UI", 12F)
-        Label5.Location = New Point(96, 340)
+        Label5.Location = New Point(96, 377)
         Label5.Name = "Label5"
         Label5.Size = New Size(143, 64)
         Label5.TabIndex = 21
@@ -98,7 +99,7 @@ Partial Class ViewSubmissionsForm
         ' 
         Label4.AutoSize = True
         Label4.Font = New Font("Segoe UI", 12F)
-        Label4.Location = New Point(96, 269)
+        Label4.Location = New Point(96, 321)
         Label4.Name = "Label4"
         Label4.Size = New Size(142, 32)
         Label4.TabIndex = 20
@@ -109,7 +110,7 @@ Partial Class ViewSubmissionsForm
         ' 
         Label3.AutoSize = True
         Label3.Font = New Font("Segoe UI", 12F)
-        Label3.Location = New Point(126, 195)
+        Label3.Location = New Point(126, 247)
         Label3.Name = "Label3"
         Label3.Size = New Size(71, 32)
         Label3.TabIndex = 19
@@ -120,7 +121,7 @@ Partial Class ViewSubmissionsForm
         ' 
         Label2.AutoSize = True
         Label2.Font = New Font("Segoe UI", 12F)
-        Label2.Location = New Point(126, 124)
+        Label2.Location = New Point(126, 176)
         Label2.Name = "Label2"
         Label2.Size = New Size(78, 32)
         Label2.TabIndex = 18
@@ -131,7 +132,7 @@ Partial Class ViewSubmissionsForm
         ' 
         Label6.AutoSize = True
         Label6.Font = New Font("Segoe UI", 12F)
-        Label6.Location = New Point(96, 438)
+        Label6.Location = New Point(96, 459)
         Label6.Name = "Label6"
         Label6.Size = New Size(124, 64)
         Label6.TabIndex = 26
@@ -140,7 +141,7 @@ Partial Class ViewSubmissionsForm
         ' 
         ' txtStopwatchTime
         ' 
-        txtStopwatchTime.Location = New Point(269, 457)
+        txtStopwatchTime.Location = New Point(269, 478)
         txtStopwatchTime.Multiline = True
         txtStopwatchTime.Name = "txtStopwatchTime"
         txtStopwatchTime.ReadOnly = True
@@ -150,7 +151,7 @@ Partial Class ViewSubmissionsForm
         ' btnPrevious
         ' 
         btnPrevious.BackColor = Color.FromArgb(CByte(255), CByte(236), CByte(156))
-        btnPrevious.Location = New Point(22, 680)
+        btnPrevious.Location = New Point(22, 615)
         btnPrevious.Name = "btnPrevious"
         btnPrevious.Size = New Size(297, 40)
         btnPrevious.TabIndex = 28
@@ -160,7 +161,7 @@ Partial Class ViewSubmissionsForm
         ' btnNext
         ' 
         btnNext.BackColor = Color.FromArgb(CByte(168), CByte(220), CByte(252))
-        btnNext.Location = New Point(348, 680)
+        btnNext.Location = New Point(348, 615)
         btnNext.Name = "btnNext"
         btnNext.Size = New Size(295, 40)
         btnNext.TabIndex = 29
@@ -172,7 +173,7 @@ Partial Class ViewSubmissionsForm
         btnDelete.BackColor = Color.LightCoral
         btnDelete.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnDelete.ForeColor = SystemColors.ButtonHighlight
-        btnDelete.Location = New Point(22, 536)
+        btnDelete.Location = New Point(22, 545)
         btnDelete.Name = "btnDelete"
         btnDelete.Size = New Size(297, 40)
         btnDelete.TabIndex = 30
@@ -184,7 +185,7 @@ Partial Class ViewSubmissionsForm
         btnEdit.BackColor = Color.SteelBlue
         btnEdit.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         btnEdit.ForeColor = SystemColors.ButtonHighlight
-        btnEdit.Location = New Point(346, 536)
+        btnEdit.Location = New Point(346, 545)
         btnEdit.Name = "btnEdit"
         btnEdit.Size = New Size(297, 40)
         btnEdit.TabIndex = 31
@@ -193,7 +194,7 @@ Partial Class ViewSubmissionsForm
         ' 
         ' txtSearchEmail
         ' 
-        txtSearchEmail.Location = New Point(22, 627)
+        txtSearchEmail.Location = New Point(22, 103)
         txtSearchEmail.Name = "txtSearchEmail"
         txtSearchEmail.Size = New Size(297, 31)
         txtSearchEmail.TabIndex = 32
@@ -203,12 +204,22 @@ Partial Class ViewSubmissionsForm
         btnSearch.BackColor = Color.Azure
         btnSearch.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         btnSearch.ForeColor = SystemColors.ActiveCaptionText
-        btnSearch.Location = New Point(346, 622)
+        btnSearch.Location = New Point(346, 98)
         btnSearch.Name = "btnSearch"
         btnSearch.Size = New Size(297, 40)
         btnSearch.TabIndex = 33
         btnSearch.Text = "SEARCH BY EMAIL"
         btnSearch.UseVisualStyleBackColor = False
+        ' 
+        ' btnExportToCSV
+        ' 
+        btnExportToCSV.BackColor = Color.FromArgb(CByte(192), CByte(255), CByte(192))
+        btnExportToCSV.Location = New Point(348, 686)
+        btnExportToCSV.Name = "btnExportToCSV"
+        btnExportToCSV.Size = New Size(295, 40)
+        btnExportToCSV.TabIndex = 34
+        btnExportToCSV.Text = "EXPORT TO CSV"
+        btnExportToCSV.UseVisualStyleBackColor = False
         ' 
         ' ViewSubmissionsForm
         ' 
@@ -216,6 +227,7 @@ Partial Class ViewSubmissionsForm
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
         ClientSize = New Size(665, 748)
+        Controls.Add(btnExportToCSV)
         Controls.Add(btnSearch)
         Controls.Add(txtSearchEmail)
         Controls.Add(btnEdit)
@@ -256,4 +268,5 @@ Partial Class ViewSubmissionsForm
     Friend WithEvents btnEdit As Button
     Friend WithEvents txtSearchEmail As TextBox
     Friend WithEvents btnSearch As Button
+    Friend WithEvents btnExportToCSV As Button
 End Class

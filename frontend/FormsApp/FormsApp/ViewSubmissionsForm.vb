@@ -1,4 +1,5 @@
-﻿Imports System.Net.Http
+﻿Imports System.IO
+Imports System.Net.Http
 Imports Newtonsoft.Json
 
 Public Class ViewSubmissionsForm
@@ -126,5 +127,44 @@ Public Class ViewSubmissionsForm
             End If
         End Using
     End Function
+
+    ' Add the button click event handler for exporting to CSV
+    Private Sub btnExportToCSV_Click(sender As Object, e As EventArgs) Handles btnExportToCSV.Click
+        ExportSubmissionsToCSV()
+    End Sub
+
+    ' Function to fetch all submissions and export to CSV
+    Private Async Sub ExportSubmissionsToCSV()
+        Using client As New HttpClient()
+            Dim response As HttpResponseMessage = Await client.GetAsync("http://localhost:3000/readAll")
+            If response.IsSuccessStatusCode Then
+                Dim jsonResponse As String = Await response.Content.ReadAsStringAsync()
+                Dim submissions As List(Of Submission) = JsonConvert.DeserializeObject(Of List(Of Submission))(jsonResponse)
+                SaveSubmissionsToCSV(submissions)
+            Else
+                MessageBox.Show("Failed to fetch submissions.")
+            End If
+        End Using
+    End Sub
+
+    ' Function to save submissions to CSV
+    Private Sub SaveSubmissionsToCSV(submissions As List(Of Submission))
+        Dim saveFileDialog As New SaveFileDialog() With {
+            .Filter = "CSV files (*.csv)|*.csv",
+            .Title = "Save Submissions to CSV"
+        }
+
+        If saveFileDialog.ShowDialog() = DialogResult.OK Then
+            Dim filePath As String = saveFileDialog.FileName
+            Using writer As New StreamWriter(filePath)
+                writer.WriteLine("Name,Email,Phone,GithubLink,StopwatchTime") ' Header row
+
+                For Each submission As Submission In submissions
+                    writer.WriteLine($"{submission.Name},{submission.Email},{submission.Phone},{submission.GithubLink},{submission.StopwatchTime}")
+                Next
+            End Using
+            MessageBox.Show("Submissions exported to CSV successfully!")
+        End If
+    End Sub
 
 End Class

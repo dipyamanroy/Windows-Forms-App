@@ -1,4 +1,5 @@
-﻿Imports System.Net.Http
+﻿Imports System.Net
+Imports System.Net.Http
 Imports System.Text
 Imports Newtonsoft.Json
 
@@ -83,6 +84,11 @@ Public Class CreateSubmissionForm
             Return
         End If
 
+        If Not IsValidName(name) Then
+            MessageBox.Show("Name cannot contain numbers or special characters.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
         If String.IsNullOrEmpty(email) Then
             MessageBox.Show("Email cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
@@ -93,19 +99,26 @@ Public Class CreateSubmissionForm
             Return
         End If
 
+        ' Check for duplicates
+        If Await IsDuplicateSubmission(name, email) Then
+            MessageBox.Show("A submission with the same name and email already exists.", "Duplicate Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
         Dim submission As New Submission() With {
-            .Name = txtName.Text,
-            .Email = txtEmail.Text,
-            .Phone = txtPhoneNum.Text,
-            .GithubLink = txtGithubLink.Text,
-            .StopwatchTime = txtStopwatchTime.Text
-        }
+        .Name = name,
+        .Email = email,
+        .Phone = phoneNum,
+        .GithubLink = txtGithubLink.Text,
+        .StopwatchTime = txtStopwatchTime.Text
+    }
 
         Using client As New HttpClient()
+            Dim json As String = JsonConvert.SerializeObject(submission)
+            Dim content As New StringContent(json, Encoding.UTF8, "application/json")
+
             If editIndex = -1 Then
                 ' Creating a new submission
-                Dim json As String = JsonConvert.SerializeObject(submission)
-                Dim content As New StringContent(json, Encoding.UTF8, "application/json")
                 Dim response As HttpResponseMessage = Await client.PostAsync("http://localhost:3000/submit", content)
                 If response.IsSuccessStatusCode Then
                     MessageBox.Show("Submission saved successfully!")
@@ -116,8 +129,6 @@ Public Class CreateSubmissionForm
                 End If
             Else
                 ' Updating an existing submission
-                Dim json As String = JsonConvert.SerializeObject(submission)
-                Dim content As New StringContent(json, Encoding.UTF8, "application/json")
                 Dim response As HttpResponseMessage = Await client.PutAsync($"http://localhost:3000/update?index={editIndex}", content)
                 If response.IsSuccessStatusCode Then
                     MessageBox.Show("Submission updated successfully!")
@@ -129,6 +140,36 @@ Public Class CreateSubmissionForm
             End If
         End Using
     End Sub
+
+    Private Async Function IsDuplicateSubmission(name As String, email As String) As Task(Of Boolean)
+        Using client As New HttpClient()
+            Dim checkData As New With {Key .Name = name, Key .Email = email}
+            Dim json As String = JsonConvert.SerializeObject(checkData)
+            Dim content As New StringContent(json, Encoding.UTF8, "application/json")
+
+            Dim response As HttpResponseMessage = Await client.PostAsync("http://localhost:3000/checkDuplicate", content)
+            Return response.StatusCode = HttpStatusCode.Conflict
+        End Using
+    End Function
+
+    Private Function IsValidName(name As String) As Boolean
+        ' Ensure name contains only letters and spaces
+        For Each c As Char In name
+            If Not Char.IsLetter(c) AndAlso Not Char.IsWhiteSpace(c) Then
+                Return False
+            End If
+        Next
+        Return True
+    End Function
+
+    Private Function IsValidPhoneNumber(phoneNum As String) As Boolean
+        ' Ensure phone number is exactly 10 numeric digits if provided
+        If String.IsNullOrEmpty(phoneNum) Then
+            Return True
+        End If
+        Return phoneNum.Length = 10 AndAlso phoneNum.All(AddressOf Char.IsDigit)
+    End Function
+
 
     Private Async Function LoadSubmission(index As Integer) As Task
         Using client As New HttpClient()
@@ -148,10 +189,6 @@ Public Class CreateSubmissionForm
                 End If
             End If
         End Using
-    End Function
-
-    Private Function IsValidPhoneNumber(phone As String) As Boolean
-        Return phone.Length = 10 AndAlso phone.All(AddressOf Char.IsDigit)
     End Function
 
 End Class

@@ -88,6 +88,26 @@ app.get('/search', (req: Request, res: Response) => {
   }
 });
 
+// Endpoint to check for duplicate submission
+app.post('/checkDuplicate', (req: Request, res: Response) => {
+  const { Name, Email } = req.body;
+  const db = JSON.parse(fs.readFileSync(dbPath, 'utf-8'));
+
+  const duplicate = db.submissions.find((submission: Submission) => submission.Name === Name && submission.Email === Email);
+
+  if (duplicate) {
+    res.status(409).send('Duplicate submission found');
+  } else {
+    res.status(200).send('No duplicate found');
+  }
+});
+
+// Endpoint to read all form submissions
+app.get('/readAll', (req: Request, res: Response) => {
+  const db = JSON.parse(fs.readFileSync(dbPath, 'utf-8'));
+  res.json(db.submissions);
+});
+
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
