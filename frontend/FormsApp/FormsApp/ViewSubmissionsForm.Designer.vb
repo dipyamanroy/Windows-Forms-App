@@ -155,7 +155,7 @@ Partial Class ViewSubmissionsForm
         btnPrevious.Name = "btnPrevious"
         btnPrevious.Size = New Size(297, 40)
         btnPrevious.TabIndex = 28
-        btnPrevious.Text = "PREVIOUS (CTRL+P)"
+        btnPrevious.Text = "◀ PREVIOUS (CTRL+P)"
         btnPrevious.UseVisualStyleBackColor = False
         ' 
         ' btnNext
@@ -165,7 +165,7 @@ Partial Class ViewSubmissionsForm
         btnNext.Name = "btnNext"
         btnNext.Size = New Size(295, 40)
         btnNext.TabIndex = 29
-        btnNext.Text = "NEXT (CTRL+N)"
+        btnNext.Text = "NEXT (CTRL+N) ▶"
         btnNext.UseVisualStyleBackColor = False
         ' 
         ' btnDelete
@@ -177,7 +177,7 @@ Partial Class ViewSubmissionsForm
         btnDelete.Name = "btnDelete"
         btnDelete.Size = New Size(297, 40)
         btnDelete.TabIndex = 30
-        btnDelete.Text = "DELETE (CTRL+D)"
+        btnDelete.Text = "❌ DELETE (CTRL+D)"
         btnDelete.UseVisualStyleBackColor = False
         ' 
         ' btnEdit
@@ -189,7 +189,7 @@ Partial Class ViewSubmissionsForm
         btnEdit.Name = "btnEdit"
         btnEdit.Size = New Size(297, 40)
         btnEdit.TabIndex = 31
-        btnEdit.Text = "EDIT (CTRL+E)"
+        btnEdit.Text = "✎ EDIT (CTRL+E)"
         btnEdit.UseVisualStyleBackColor = False
         ' 
         ' txtSearchEmail
@@ -208,7 +208,7 @@ Partial Class ViewSubmissionsForm
         btnSearch.Name = "btnSearch"
         btnSearch.Size = New Size(297, 40)
         btnSearch.TabIndex = 33
-        btnSearch.Text = "SEARCH BY EMAIL"
+        btnSearch.Text = "🔎 SEARCH BY EMAIL"
         btnSearch.UseVisualStyleBackColor = False
         ' 
         ' btnExportToCSV
@@ -218,7 +218,7 @@ Partial Class ViewSubmissionsForm
         btnExportToCSV.Name = "btnExportToCSV"
         btnExportToCSV.Size = New Size(295, 40)
         btnExportToCSV.TabIndex = 34
-        btnExportToCSV.Text = "EXPORT TO CSV"
+        btnExportToCSV.Text = "📤 EXPORT TO CSV"
         btnExportToCSV.UseVisualStyleBackColor = False
         ' 
         ' ViewSubmissionsForm

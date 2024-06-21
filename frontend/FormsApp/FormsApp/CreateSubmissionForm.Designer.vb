@@ -97,7 +97,7 @@ Partial Class CreateSubmissionForm
         btnToggleStopwatch.Name = "btnToggleStopwatch"
         btnToggleStopwatch.Size = New Size(309, 40)
         btnToggleStopwatch.TabIndex = 13
-        btnToggleStopwatch.Text = "TOGGLE STOPWATCH (CTRL+T)"
+        btnToggleStopwatch.Text = "⏱️ TOGGLE STOPWATCH (CTRL+T)"
         btnToggleStopwatch.UseVisualStyleBackColor = False
         ' 
         ' txtName
@@ -144,7 +144,7 @@ Partial Class CreateSubmissionForm
         btnSubmit.Name = "btnSubmit"
         btnSubmit.Size = New Size(621, 40)
         btnSubmit.TabIndex = 19
-        btnSubmit.Text = "SUBMIT (CTRL+S)"
+        btnSubmit.Text = "✔️ SUBMIT (CTRL+S)"
         btnSubmit.UseVisualStyleBackColor = False
         ' 
         ' CreateSubmissionForm

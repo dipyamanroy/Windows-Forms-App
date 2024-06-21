@@ -94,12 +94,16 @@ Public Class CreateSubmissionForm
             Return
         End If
 
+        If Not IsValidEmail(email) Then
+            MessageBox.Show("Invalid email format.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
         If Not IsValidPhoneNumber(phoneNum) Then
             MessageBox.Show("Phone number must be exactly 10 numeric digits.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
 
-        ' Check for duplicates
         If Await IsDuplicateSubmission(name, email) Then
             MessageBox.Show("A submission with the same name and email already exists.", "Duplicate Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
@@ -170,6 +174,14 @@ Public Class CreateSubmissionForm
         Return phoneNum.Length = 10 AndAlso phoneNum.All(AddressOf Char.IsDigit)
     End Function
 
+    Private Function IsValidEmail(email As String) As Boolean
+        Try
+            Dim mailAddress = New System.Net.Mail.MailAddress(email)
+            Return mailAddress.Address = email
+        Catch
+            Return False
+        End Try
+    End Function
 
     Private Async Function LoadSubmission(index As Integer) As Task
         Using client As New HttpClient()

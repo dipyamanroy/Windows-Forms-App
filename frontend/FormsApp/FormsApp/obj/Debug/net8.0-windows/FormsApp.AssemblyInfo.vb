@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("FormsApp"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1b4a89546a2e5ffec824df8360516d6db2c9fd3b"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+735e9406d092474e2bb1477230f69ee8431b634b"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("FormsApp"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("FormsApp"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _

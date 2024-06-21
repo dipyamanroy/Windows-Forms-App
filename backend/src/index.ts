@@ -6,6 +6,7 @@ import path from 'path';
 const app = express();
 const port = 3000;
 const dbPath = path.resolve(__dirname, 'db.json');
+const auditPath = path.resolve(__dirname, 'audit.json');
 
 app.use(bodyParser.json());
 
