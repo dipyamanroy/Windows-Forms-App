@@ -25,19 +25,20 @@ This backend is built using Node.js and Express. It serves as the server-side co
 
 ## Running the Backend
 
-1. Navigate to the backend directory (**Note:** Ignore if you are in the current directory for **this** `README.md`):
+1. Clone the full repository, using `git clone https://github.com/dipyamanroy/Windows-Forms-App/`.
+2. Navigate to the backend directory (`/backend`) (**Note:** Ignore if you are in the current directory for **this** `README.md`):
 
    ```
    cd backend
    ```
 
-2. Install the dependencies:
+3. Install the dependencies:
 
    ```
    npm install
    ```
 
-3. Start the server:
+4. Start the server:
 
    ```
    npm start

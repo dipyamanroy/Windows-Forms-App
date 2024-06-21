@@ -31,8 +31,9 @@ The frontend of the application is built using VB.NET and consists of three form
 
 ## Running the Frontend
 
-1. Open the frontend project in Visual Studio (or just click on the solution file, `/FormsApp.sln`).
-2. Build the project to ensure that all dependencies are resolved.
-3. Run the project.
+1. Clone the full repository, using `git clone https://github.com/dipyamanroy/Windows-Forms-App/`.
+2. Open the frontend project (`/frontend/FormsApp`) in Visual Studio (or just click on the solution file, `/frontend/FormsApp/FormsApp.sln`).
+3. Build the project to ensure that all dependencies are resolved.
+4. Run the project.
 
 The frontend application will start, and you can interact with it using the provided forms.
