@@ -4,7 +4,7 @@
 
 The frontend of the application is built using VB.NET and consists of three forms:
 
-|   |   |   |
+| Sl no | Form  |  How it looks |
 |---|---|---|
 | 1  | **Form1:** The main form that provides options to view submissions and create new submissions.  |  ![Form1](/assets/landing.png) |
 | 2  |  **CreateSubmissionForm:** A form for creating and editing submissions. It includes fields for name, email, phone number, GitHub link, and stopwatch time. | ![CreateSub](/assets/createsub.png)  |

@@ -2,6 +2,12 @@
 ## Overview
 This project is a full-stack Windows Forms application that consists of a frontend built with VB.NET and a backend built with Node.js and Express. The application allows users to create, view, edit, and delete submissions, with additional features such as a stopwatch and email search functionality. It was written as part of Slidely's assessment task 2.
 
+| Form  |  How it looks |
+|---|---|
+| **Landing** |  ![Form1](/assets/landing.png) |
+|  **Create Submission**| ![CreateSub](/assets/createsub.png)  |
+| **View Submissions** and Delete, Edit, and Export to CSV | ![ViewSubs](/assets/viewsubs.png)  |
+
 ## Features
 
 - **Create Submission:** Users can create new submissions with fields for name, email, phone number, GitHub link, and stopwatch time.
